@@ -1,5 +1,6 @@
 package com.application.bscategoryservice.service.impl;
 
+import com.application.bscategoryservice.dto.category.CategoryByIdsRequestDto;
 import com.application.bscategoryservice.dto.category.CategoryDto;
 import com.application.bscategoryservice.dto.category.CreateCategoryRequestDto;
 import com.application.bscategoryservice.mapper.CategoryMapper;
@@ -53,6 +54,14 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteById(Long categoryId) {
         categoryRepository.deleteById(categoryId);
+    }
+
+    @Override
+    public List<CategoryDto> getCategoryDetailsByIds(CategoryByIdsRequestDto requestDto) {
+        List<Category> categories = categoryRepository.findAllById(requestDto.categoryIds());
+        return categories.stream()
+                .map(categoryMapper::toDto)
+                .toList();
     }
 
     private Category getCategoryById(Long categoryId) {

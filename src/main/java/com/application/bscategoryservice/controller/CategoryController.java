@@ -1,5 +1,6 @@
 package com.application.bscategoryservice.controller;
 
+import com.application.bscategoryservice.dto.category.CategoryByIdsRequestDto;
 import com.application.bscategoryservice.dto.category.CategoryDto;
 import com.application.bscategoryservice.dto.category.CreateCategoryRequestDto;
 import com.application.bscategoryservice.service.CategoryService;
@@ -7,7 +8,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -29,6 +29,11 @@ public class CategoryController {
     @GetMapping("/{id}")
     public CategoryDto getCategoryById(@PathVariable Long id) {
         return categoryService.getById(id);
+    }
+
+    @PostMapping("/details-by-ids")
+    public List<CategoryDto> getCategoryDetailsByIds(@RequestBody CategoryByIdsRequestDto requestDto) {
+        return categoryService.getCategoryDetailsByIds(requestDto);
     }
 
     @PutMapping("/{id}")
