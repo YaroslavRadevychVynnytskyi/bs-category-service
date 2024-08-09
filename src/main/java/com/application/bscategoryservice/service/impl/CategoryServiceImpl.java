@@ -8,11 +8,10 @@ import com.application.bscategoryservice.model.Category;
 import com.application.bscategoryservice.repo.CategoryRepository;
 import com.application.bscategoryservice.service.CategoryService;
 import jakarta.persistence.EntityNotFoundException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
