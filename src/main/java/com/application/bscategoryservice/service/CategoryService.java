@@ -3,8 +3,8 @@ package com.application.bscategoryservice.service;
 import com.application.bscategoryservice.dto.category.CategoryByIdsRequestDto;
 import com.application.bscategoryservice.dto.category.CategoryDto;
 import com.application.bscategoryservice.dto.category.CreateCategoryRequestDto;
-import org.springframework.data.domain.Pageable;
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 public interface CategoryService {
     List<CategoryDto> findAll(Pageable pageable);
